@@ -153,11 +153,8 @@ forma.addEventListener("click", ()=>{
     }
     else if(!proveraIme()){
         proveriIme();
-        
+ 
     }
-
-
-
 });
 
 var modal = document.getElementById("otvori");
