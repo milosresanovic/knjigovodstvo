@@ -45,7 +45,7 @@ window.addEventListener('scroll', () => {
             if (y == x) clearInterval(m);
         }
     }
-/* jQuery */
+    /* jQuery */
     $("scrollToTop").click(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
@@ -58,7 +58,7 @@ window.addEventListener('scroll', () => {
             $(".fade-left").animate({ left: 0, opacity: "show" }, 1500);
         });
     }
-/* end jQuery */
+    /* end jQuery */
 
     if (skrol > 900) {
         let vratiGore = document.getElementById("vratiGore");
@@ -73,23 +73,22 @@ window.addEventListener('scroll', () => {
 
 
 /* jQuery */
-$(document).ready(function (){
+/* $(document).ready(function () {
     console.log("usao sam u funkciju");
-    var i=2;
+    var i = 2;
     setInterval(() => {
         console.log(i)
-        if(i<3){
-            /* $("#pojaviSe").fadeOut(); */
-            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`); 
+        if (i < 3) {
+            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);
             $("#pojaviSe").fadeIn(3000);
-            i+=1;
+            i += 1;
         }
-        else{
-            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);          
-            i=1;
+        else {
+            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);
+            i = 1;
         }
     }, 6000);
-});
+}); */
 /* end jQuery */
 
 let dugmeUcitajJos = document.getElementById("dugmeJosUcitaj");
@@ -382,9 +381,11 @@ for (let i = 0; i < listaUsluga.length; i++) {
     });
 }
 
+$(document).ready(function () {
+    $('.your-class').slick({
+        arrows:false,
+        autoplaySpeed:3000, 
+        autoplay:true
+    });
+});
 
-
-/* let skrozDesnoOpsirnije=document.getElementById("skrozDesnoOpsirnije");
-let skrozDesno=document.getElementById("skrozDesno");
-skrozDesnoOpsirnije.style.height=skrozDesno.style.height;
- */
