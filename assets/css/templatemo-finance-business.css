@@ -1296,8 +1296,8 @@ footer .contact-form button.filled-button:hover {
 		margin-bottom: 30px;
 	}
 }
-
-@media (max-width: 992px) {
+/* 
+ @media (max-width: 992px) {
 	.navbar .navbar-brand {
 		position: absolute;
 		left: 30px;
@@ -1336,5 +1336,16 @@ footer .contact-form button.filled-button:hover {
 	.navbar .navbar-nav .show>.nav-link {
 		color: #a4c639!important;
 		border-bottom: none!important;
+	}
+}  */
+@media (max-width: 585px){
+	#logo{
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 425px){
+	.stilDiv2{
+		width: 95%;
 	}
 }
