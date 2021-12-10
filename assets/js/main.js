@@ -45,7 +45,7 @@ window.addEventListener('scroll', () => {
             if (y == x) clearInterval(m);
         }
     }
-
+/* jQuery */
     $("scrollToTop").click(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
@@ -58,21 +58,7 @@ window.addEventListener('scroll', () => {
             $(".fade-left").animate({ left: 0, opacity: "show" }, 1500);
         });
     }
-    
-    /* let dugmeUcitajJos=document.getElementById("dugmeJosUcitaj");
-    dugmeUcitajJos.addEventListener("click", ()=>{   
-        console.log("pokreni se!");
-        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
-        $(".fade-right-right").animate({ right: 0, opacity: "show" }, 1500);
-    });
-
-    let dugmeNazad=document.getElementById("manjeTeksta");
-    dugmeNazad.addEventListener("click", ()=>{   
-        console.log("pokreni se nazad!");
-        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
-        //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
-        $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
-    }); */
+/* end jQuery */
 
     if (skrol > 900) {
         let vratiGore = document.getElementById("vratiGore");
@@ -85,20 +71,41 @@ window.addEventListener('scroll', () => {
 
 })
 
-let dugmeUcitajJos=document.getElementById("dugmeJosUcitaj");
-    dugmeUcitajJos.addEventListener("click", ()=>{   
-        console.log("pokreni se!");
-        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
-        $(".fade-right-right").animate({ right: 0, opacity: "show" }, 1500);
-    });
 
-    let dugmeNazad=document.getElementById("manjeTeksta");
-    dugmeNazad.addEventListener("click", ()=>{   
-        console.log("pokreni se nazad!");
-        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
-        //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
-        $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
-    });
+/* jQuery */
+$(document).ready(function (){
+    console.log("usao sam u funkciju");
+    var i=2;
+    setInterval(() => {
+        console.log(i)
+        if(i<3){
+            /* $("#pojaviSe").fadeOut(); */
+            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`); 
+            $("#pojaviSe").fadeIn(3000);
+            i+=1;
+        }
+        else{
+            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);          
+            i=1;
+        }
+    }, 6000);
+});
+/* end jQuery */
+
+let dugmeUcitajJos = document.getElementById("dugmeJosUcitaj");
+dugmeUcitajJos.addEventListener("click", () => {
+    console.log("pokreni se!");
+    document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+    $(".fade-right-right").animate({ right: 0, opacity: "show" }, 1500);
+});
+
+let dugmeNazad = document.getElementById("manjeTeksta");
+dugmeNazad.addEventListener("click", () => {
+    console.log("pokreni se nazad!");
+    document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+    //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
+    $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
+});
 
 
 let uzorakIme = /^[A-ZČĆŠĐŽ][a-zčćšđž]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,15})?(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,20})\s*$/;
@@ -166,7 +173,7 @@ forma.addEventListener("click", () => {
     }
     if (txt != "") {
         document.getElementById("upozorenjeText").classList.add("sakrij");
-        
+
     }
     if (comboRez == "") {
         document.getElementById("upozorenjeTema").classList.remove("sakrij");
@@ -178,17 +185,17 @@ forma.addEventListener("click", () => {
     if (comboRez != "" && txt != "" && proveriEmail() && proveriIme()) {
         document.getElementById("uspehForma").classList.remove("sakrij");
     }
-    else{
+    else {
         document.getElementById("uspehForma").classList.add("sakrij");
 
-    }  
+    }
     if (comboRez == "") {
         document.getElementById("upozorenjeTema").classList.remove("sakrij");
         document.getElementById("uspehForma").classList.add("sakrij");
     }
     if (comboRez != "") {
         document.getElementById("upozorenjeTema").classList.add("sakrij");
-        
+
     }
     /* if (!proveraIme()) {
         proveriIme();
@@ -235,7 +242,7 @@ modal.addEventListener("click", () => {
         x3.textContent = "Niste izabrali vreme!"
         let x4 = document.createElement("p");
         x4.setAttribute("class", "sakrij poslataFormaText")
-        x4.innerHTML="Uspešno ste zakazali sastanak!";
+        x4.innerHTML = "Uspešno ste zakazali sastanak!";
         let dugme = document.createElement("button")
         dugme.setAttribute("type", "button")
         dugme.setAttribute("class", "dugmeForma")
@@ -323,10 +330,10 @@ modal.addEventListener("click", () => {
         })
 
         dugme.addEventListener("click", () => {
-            if (combo2.value=="Izaberite vreme"){
+            if (combo2.value == "Izaberite vreme") {
                 x3.classList.remove("sakrij");
             }
-            if (combo2.value!="Izaberite vreme"){
+            if (combo2.value != "Izaberite vreme") {
                 x3.classList.add("sakrij");
             }
             let ime = txtBox.value;
@@ -345,35 +352,37 @@ modal.addEventListener("click", () => {
                 let poljeIme = document.getElementById('poljeImeD');
                 poljeIme.classList.add('sakrij');
             }
-            if(isNaN(combo1.valueAsNumber)){
+            if (isNaN(combo1.valueAsNumber)) {
                 x2.classList.remove("sakrij")
             }
-            if(!isNaN(combo1.valueAsNumber)){
+            if (!isNaN(combo1.valueAsNumber)) {
                 x2.classList.add("sakrij");
             }
 
-            if(combo2.value!="Izaberite vreme" && uzorakIme.test(ime)  && !isNaN(combo1.valueAsNumber)){
+            if (combo2.value != "Izaberite vreme" && uzorakIme.test(ime) && !isNaN(combo1.valueAsNumber)) {
                 x4.classList.remove("sakrij");
-            }  
-            else{
+            }
+            else {
                 x4.classList.add("sakrij");
-            }          
+            }
         })
     }
 });
 
-let listaUsluga=document.getElementsByClassName("usluge");
+let listaUsluga = document.getElementsByClassName("usluge");
 console.log(listaUsluga)
-for(let i=0;i<listaUsluga.length;i++){
-    listaUsluga[i].addEventListener("mouseover", ()=>{
+for (let i = 0; i < listaUsluga.length; i++) {
+    listaUsluga[i].addEventListener("mouseover", () => {
         listaUsluga[i].classList.add("senka");
     });
 }
-for(let i=0;i<listaUsluga.length;i++){
-    listaUsluga[i].addEventListener("mouseout", ()=>{
+for (let i = 0; i < listaUsluga.length; i++) {
+    listaUsluga[i].addEventListener("mouseout", () => {
         listaUsluga[i].classList.remove("senka");
     });
 }
+
+
 
 /* let skrozDesnoOpsirnije=document.getElementById("skrozDesnoOpsirnije");
 let skrozDesno=document.getElementById("skrozDesno");
