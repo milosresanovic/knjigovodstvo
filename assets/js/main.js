@@ -58,6 +58,21 @@ window.addEventListener('scroll', () => {
             $(".fade-left").animate({ left: 0, opacity: "show" }, 1500);
         });
     }
+    
+    /* let dugmeUcitajJos=document.getElementById("dugmeJosUcitaj");
+    dugmeUcitajJos.addEventListener("click", ()=>{   
+        console.log("pokreni se!");
+        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+        $(".fade-right-right").animate({ right: 0, opacity: "show" }, 1500);
+    });
+
+    let dugmeNazad=document.getElementById("manjeTeksta");
+    dugmeNazad.addEventListener("click", ()=>{   
+        console.log("pokreni se nazad!");
+        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+        //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
+        $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
+    }); */
 
     if (skrol > 900) {
         let vratiGore = document.getElementById("vratiGore");
@@ -69,6 +84,22 @@ window.addEventListener('scroll', () => {
     }
 
 })
+
+let dugmeUcitajJos=document.getElementById("dugmeJosUcitaj");
+    dugmeUcitajJos.addEventListener("click", ()=>{   
+        console.log("pokreni se!");
+        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+        $(".fade-right-right").animate({ right: 0, opacity: "show" }, 1500);
+    });
+
+    let dugmeNazad=document.getElementById("manjeTeksta");
+    dugmeNazad.addEventListener("click", ()=>{   
+        console.log("pokreni se nazad!");
+        document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
+        //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
+        $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
+    });
+
 
 let uzorakIme = /^[A-ZČĆŠĐŽ][a-zčćšđž]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,15})?(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,20})\s*$/;
 
@@ -124,36 +155,45 @@ let forma = document.getElementById("form-submit");
 forma.addEventListener("click", () => {
     let combo = document.getElementById("selektujTemu");
     let comboRez = combo.value;
-    let txt = document.getElementById("message").value
+    let txt = document.getElementById("message").value;
     let m1 = proveriIme();
     let m2 = proveriEmail();
+
+
+    if (txt == "") {
+        document.getElementById("upozorenjeText").classList.remove("sakrij");
+        document.getElementById("uspehForma").classList.add("sakrij");
+    }
+    if (txt != "") {
+        document.getElementById("upozorenjeText").classList.add("sakrij");
+        
+    }
     if (comboRez == "") {
         document.getElementById("upozorenjeTema").classList.remove("sakrij");
+        document.getElementById("uspehForma").classList.add("sakrij");
     }
     else {
         document.getElementById("upozorenjeTema").classList.add("sakrij");
     }
     if (comboRez != "" && txt != "" && proveriEmail() && proveriIme()) {
-        console.log("ide gas na maskaru")
-        document.getElementById("upozorenjeText").classList.add("sakrij");
-        document.getElementById("upozorenjeText").classList.add("sakrij");
+        document.getElementById("uspehForma").classList.remove("sakrij");
     }
-    else if (txt == "") {
-        document.getElementById("upozorenjeText").classList.remove("sakrij");
-    }
-    else if (txt != "") {
-        document.getElementById("upozorenjeText").classList.add("sakrij");
-    }
-    else if (comboRez == "") {
-        document.getElementById("upozorenjeTema").classList.remove("sakrij");
-    }
-    else if (comboRez != "") {
-        document.getElementById("upozorenjeText").classList.add("sakrij");
-    }
-    else if (!proveraIme()) {
-        proveriIme();
+    else{
+        document.getElementById("uspehForma").classList.add("sakrij");
 
+    }  
+    if (comboRez == "") {
+        document.getElementById("upozorenjeTema").classList.remove("sakrij");
+        document.getElementById("uspehForma").classList.add("sakrij");
     }
+    if (comboRez != "") {
+        document.getElementById("upozorenjeTema").classList.add("sakrij");
+        
+    }
+    /* if (!proveraIme()) {
+        proveriIme();
+    } */
+
 });
 
 var modal = document.getElementById("otvori");
@@ -321,3 +361,21 @@ modal.addEventListener("click", () => {
         })
     }
 });
+
+let listaUsluga=document.getElementsByClassName("usluge");
+console.log(listaUsluga)
+for(let i=0;i<listaUsluga.length;i++){
+    listaUsluga[i].addEventListener("mouseover", ()=>{
+        listaUsluga[i].classList.add("senka");
+    });
+}
+for(let i=0;i<listaUsluga.length;i++){
+    listaUsluga[i].addEventListener("mouseout", ()=>{
+        listaUsluga[i].classList.remove("senka");
+    });
+}
+
+/* let skrozDesnoOpsirnije=document.getElementById("skrozDesnoOpsirnije");
+let skrozDesno=document.getElementById("skrozDesno");
+skrozDesnoOpsirnije.style.height=skrozDesno.style.height;
+ */
