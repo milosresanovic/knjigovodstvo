@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
     else {
         radnoVreme.classList.add("crvenaSlova");
     }
-
 })
 
 let pokrenutoKaunter = false;
@@ -29,7 +28,6 @@ window.addEventListener('scroll', () => {
             prom[i] = (parseInt(niz[i].textContent));
             let r = prom[i] / 3;
             intervali[i] = 1000 / r;
-
         }
 
         for (let i = 0; i < intervali.length; i++) {
@@ -75,12 +73,13 @@ window.addEventListener('scroll', () => {
 let uzorakIme = /^[A-ZČĆŠĐŽ][a-zčćšđž]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,15})?(\s[A-ZČĆŠĐŽ][a-zčćšđž]{2,20})\s*$/;
 
 let txtIme = document.getElementById('name');
+poljeIme = document.getElementById('upozorenjeIme');
 txtIme.addEventListener('blur', proveriIme);
 function proveriIme() {
     let ime = txtIme.value;
     ime.replace(/\s\s+/g, ' ');
     if (!uzorakIme.test(ime)) {
-        let poljeIme = document.getElementById('upozorenjeIme');
+        poljeIme = document.getElementById('upozorenjeIme');
         if (ime == "" || !ime.trim()) {
             poljeIme.innerHTML = "Niste popunili Ime i prezime!";
         }
@@ -102,7 +101,7 @@ let uzorakEmail = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/;
 
 let txtEmail = document.getElementById('email');
 txtEmail.addEventListener('blur', proveriEmail);
-function proveriEmail(){
+function proveriEmail() {
     let email = txtEmail.value;
     if (!uzorakEmail.test(email)) {
         let poljeEmail = document.getElementById('upozorenjeEmail');
@@ -121,39 +120,39 @@ function proveriEmail(){
     }
 }
 
-let forma=document.getElementById("form-submit");
-forma.addEventListener("click", ()=>{
-    let combo=document.getElementById("selektujTemu");
-    let comboRez=combo.value;
-    let txt=document.getElementById("message").value
-    let m1=proveriIme();
-    let m2=proveriEmail();
-    if(comboRez==""){
+let forma = document.getElementById("form-submit");
+forma.addEventListener("click", () => {
+    let combo = document.getElementById("selektujTemu");
+    let comboRez = combo.value;
+    let txt = document.getElementById("message").value
+    let m1 = proveriIme();
+    let m2 = proveriEmail();
+    if (comboRez == "") {
         document.getElementById("upozorenjeTema").classList.remove("sakrij");
     }
-    else{
+    else {
         document.getElementById("upozorenjeTema").classList.add("sakrij");
     }
-    if(comboRez!="" &&  txt!="" && proveriEmail() && proveriIme()){
+    if (comboRez != "" && txt != "" && proveriEmail() && proveriIme()) {
         console.log("ide gas na maskaru")
         document.getElementById("upozorenjeText").classList.add("sakrij");
         document.getElementById("upozorenjeText").classList.add("sakrij");
     }
-    else if(txt==""){
+    else if (txt == "") {
         document.getElementById("upozorenjeText").classList.remove("sakrij");
     }
-    else if(txt!=""){
+    else if (txt != "") {
         document.getElementById("upozorenjeText").classList.add("sakrij");
     }
-    else if(comboRez==""){
+    else if (comboRez == "") {
         document.getElementById("upozorenjeTema").classList.remove("sakrij");
     }
-    else if(comboRez!=""){
+    else if (comboRez != "") {
         document.getElementById("upozorenjeText").classList.add("sakrij");
     }
-    else if(!proveraIme()){
+    else if (!proveraIme()) {
         proveriIme();
- 
+
     }
 });
 
@@ -183,6 +182,7 @@ modal.addEventListener("click", () => {
         txtBox.setAttribute("type", "text");
         txtBox.setAttribute("placeholder", "Ime i prezime:");
         txtBox.setAttribute("class", "form-control");
+        txtBox.setAttribute("id", "txtBoxModal")
         let x1 = document.createElement("span");
         x1.setAttribute("class", "crvenaSlova levo sakrij");
         x1.setAttribute("id", "poljeImeD")
@@ -193,15 +193,18 @@ modal.addEventListener("click", () => {
         let x3 = document.createElement("span");
         x3.setAttribute("class", "crvenaSlova levo sakrij");
         x3.textContent = "Niste izabrali vreme!"
+        let x4 = document.createElement("p");
+        x4.setAttribute("class", "sakrij poslataFormaText")
+        x4.innerHTML="Uspešno ste zakazali sastanak!";
         let dugme = document.createElement("button")
-        dugme.setAttribute("type", "submit")
+        dugme.setAttribute("type", "button")
         dugme.setAttribute("class", "dugmeForma")
         dugme.setAttribute("value", "Pošalji")
         dugme.textContent = "Posalji"
         let danasnjiDatum = new Date();
         let god = danasnjiDatum.getFullYear();
         let mesec = danasnjiDatum.getMonth() + 1;
-        let dan = danasnjiDatum.getDate();
+        let dan = danasnjiDatum.getDate() + 1;
         let maxMesec = danasnjiDatum.getMonth() + 2;
         let maxGodine = danasnjiDatum.getFullYear();
 
@@ -218,6 +221,7 @@ modal.addEventListener("click", () => {
         console.log(god + "-" + mesec + "-" + dan)
         console.log(maxGodine + "-" + maxMesec + "-" + dan)
         let combo1 = document.createElement("input");
+        combo1.setAttribute("value", god + "-" + mesec + "-" + dan)
         combo1.setAttribute("id", "terminVreme");
         combo1.setAttribute("type", "date");
         combo1.setAttribute("class", "form-control")
@@ -252,7 +256,6 @@ modal.addEventListener("click", () => {
         divCentar.classList.add("centrirano")
         div2.classList.add("stilDiv2")
 
-
         //Dodavanje elemenata na stranicu
         div.appendChild(div2)
         div.appendChild(divCentar);
@@ -267,6 +270,7 @@ modal.addEventListener("click", () => {
         forma.appendChild(x3)
         forma.appendChild(combo2);
         forma.appendChild(dugme);
+        forma.appendChild(x4);
         /* forma.appendChild(cBox); */
         document.body.appendChild(div);
 
@@ -277,7 +281,14 @@ modal.addEventListener("click", () => {
             document.body.removeChild(div);
             otvorenModal = false;
         })
-        txtBox.addEventListener('blur', () => {
+
+        dugme.addEventListener("click", () => {
+            if (combo2.value=="Izaberite vreme"){
+                x3.classList.remove("sakrij");
+            }
+            if (combo2.value!="Izaberite vreme"){
+                x3.classList.add("sakrij");
+            }
             let ime = txtBox.value;
             ime.replace(/\s\s+/g, ' ');
             if (!uzorakIme.test(ime)) {
@@ -294,14 +305,19 @@ modal.addEventListener("click", () => {
                 let poljeIme = document.getElementById('poljeImeD');
                 poljeIme.classList.add('sakrij');
             }
+            if(isNaN(combo1.valueAsNumber)){
+                x2.classList.remove("sakrij")
+            }
+            if(!isNaN(combo1.valueAsNumber)){
+                x2.classList.add("sakrij");
+            }
+
+            if(combo2.value!="Izaberite vreme" && uzorakIme.test(ime)  && !isNaN(combo1.valueAsNumber)){
+                x4.classList.remove("sakrij");
+            }  
+            else{
+                x4.classList.add("sakrij");
+            }          
         })
     }
 });
-
-
-
-/* txtBox.addEventListener('blur', proveriIme);
- */
-
-
-/* proba modala */
