@@ -4,6 +4,9 @@ html{
 .crvenaSlova{
     color:#ff3333 !important;
 }
+.uBelo{
+  color:white;
+}
 body{
   max-width: 100vw !important;
 }
@@ -25,6 +28,9 @@ body{
     float:left;
     font-weight: 600;
     margin-left: 12px;
+}
+.promenaSlovaZeleno{
+  color:white !important;
 }
 #radnoVreme{
   font-weight: 600;
@@ -73,6 +79,12 @@ body{
 .pozadina-siva{
     background-color: #f7f7f7;
     height: 100% !important;
+}
+.pozadina-zelena{
+  background-color:#a4c639 !important;
+}
+.contact-item{
+  transition: all .4s ease;
 }
 .pozX{
   position: fixed;
@@ -303,3 +315,4 @@ body{
     .request-form{
       margin-top:-7px;
     }
+  

@@ -49,10 +49,10 @@ a.filled-button:hover {
 	color: #a4c639;
 }
 
-a.border-button {
+.border-button {
 	background-color: transparent;
 	color: #fff;
-	border: 2px solid #fff;
+	border: 2px solid white;
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -62,9 +62,10 @@ a.border-button {
 	transition: all 0.3s;
 }
 
-a.border-button:hover {
+.border-button:hover {
 	background-color: #fff;
 	color: #a4c639;
+	font-weight: bold;
 }
 
 .section-heading {
@@ -765,7 +766,7 @@ ul.slick-dots {
 }
 
 .callback-form .contact-form {
-	background-color: #a4c639;
+	background-color: #f7f7f7;
 	padding: 60px;
 	border-radius: 5px;
 	text-align: center;
@@ -824,8 +825,8 @@ ul.slick-dots {
 
 .callback-form .contact-form button.border-button {
 	background-color: transparent;
-	color: #fff;
-	border: 2px solid #fff;
+	color: #a4c639;
+	border: 2px solid #a4c639;
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -1223,7 +1224,7 @@ footer .contact-form button.filled-button:hover {
 	margin-bottom: 20px;
 }
 
-.contact-information .contact-item a {
+.contact-information .contact-item span {
 	font-weight: 600;
 	color: #a4c639;
 	font-size: 15px;

@@ -16,9 +16,14 @@ window.addEventListener('load', () => {
 let pokrenutoKaunter = false;
 let pokrenutoFejd = false;
 window.addEventListener('scroll', () => {
+
+    let divKaunter = document.getElementById("lmaoKaunt");
+    let pozicija = divKaunter.getBoundingClientRect();
+    let y = pozicija.top;
+
     let skrol = window.scrollY;
     console.log(skrol)
-    if (skrol > 1200 && pokrenutoKaunter == false) {
+    if (y < window.innerHeight && pokrenutoKaunter == false) {
         pokrenutoKaunter = true;
         let niz = document.querySelectorAll(".count-digit");
         let prom = [0, 0, 0, 0];
@@ -46,12 +51,16 @@ window.addEventListener('scroll', () => {
         }
     }
     /* jQuery */
+    let divSlajd = document.getElementById("slajdLmao");
+    let pozicijaSlajd = divSlajd.getBoundingClientRect();
+    let yy = pozicijaSlajd.top;
+
     $("scrollToTop").click(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
 
-    if (skrol > 1870 && pokrenutoFejd == false) {
+    if (yy <window.innerHeight && pokrenutoFejd == false) {
         pokrenutoFejd = true;
         $(document).ready(function () {
             $(".fade-right").animate({ right: 0, opacity: "show" }, 1500);
@@ -59,6 +68,8 @@ window.addEventListener('scroll', () => {
         });
     }
     /* end jQuery */
+
+    
 
     if (skrol > 900) {
         let vratiGore = document.getElementById("vratiGore");
@@ -359,9 +370,31 @@ for (let i = 0; i < listaUsluga.length; i++) {
 
 $(document).ready(function () {
     $('.your-class').slick({
-        arrows:false,
-        autoplaySpeed:3000, 
-        autoplay:true
+        arrows: false,
+        autoplaySpeed: 3000,
+        autoplay: true
     });
 });
+
+let zeleneKartice = document.getElementsByClassName("promenaZeleno");
+for (let i = 0; i < zeleneKartice.length; i++) {
+    zeleneKartice[i].addEventListener("mouseover", () => {
+        var lmao = document.getElementById(`contactItem${i + 1}`).style.backgroundColor = "#a4c639";
+        var iTag = document.getElementById(`i${i + 1}`);
+        iTag.classList.add("promenaSlovaZeleno");
+        var spanTag = document.getElementById(`span${i + 1}`);
+        spanTag.classList.add("promenaSlovaZeleno");
+        var pTag = document.getElementById(`p${i + 1}`);
+        pTag.classList.add("promenaSlovaZeleno");
+    });
+    zeleneKartice[i].addEventListener("mouseout", () => {
+        var lmao = document.getElementById(`contactItem${i + 1}`).style.backgroundColor = "#f7f7f7";
+        var iTag = document.getElementById(`i${i + 1}`);
+        iTag.classList.remove("promenaSlovaZeleno");
+        var spanTag = document.getElementById(`span${i + 1}`);
+        spanTag.classList.remove("promenaSlovaZeleno");
+        var pTag = document.getElementById(`p${i + 1}`);
+        pTag.classList.remove("promenaSlovaZeleno");
+    });
+}
 
