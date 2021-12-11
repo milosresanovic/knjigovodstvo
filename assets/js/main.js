@@ -71,26 +71,6 @@ window.addEventListener('scroll', () => {
 
 })
 
-
-/* jQuery */
-/* $(document).ready(function () {
-    console.log("usao sam u funkciju");
-    var i = 2;
-    setInterval(() => {
-        console.log(i)
-        if (i < 3) {
-            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);
-            $("#pojaviSe").fadeIn(3000);
-            i += 1;
-        }
-        else {
-            $("#promeniSliku").attr("style", `background-image: url('assets/images/slide_0${i}.jpg');`);
-            i = 1;
-        }
-    }, 6000);
-}); */
-/* end jQuery */
-
 let dugmeUcitajJos = document.getElementById("dugmeJosUcitaj");
 dugmeUcitajJos.addEventListener("click", () => {
     console.log("pokreni se!");
@@ -102,7 +82,6 @@ let dugmeNazad = document.getElementById("manjeTeksta");
 dugmeNazad.addEventListener("click", () => {
     console.log("pokreni se nazad!");
     document.getElementById("skrozDesnoOpsirnije").classList.remove("sakrij");
-    //document.getElementById("skrozDesnoOpsirnije").classList.remove("fade-right-right")
     $(".fade-right-right").animate({ right: -500, opacity: "hide" }, 1500);
 });
 
@@ -196,9 +175,6 @@ forma.addEventListener("click", () => {
         document.getElementById("upozorenjeTema").classList.add("sakrij");
 
     }
-    /* if (!proveraIme()) {
-        proveriIme();
-    } */
 
 });
 
