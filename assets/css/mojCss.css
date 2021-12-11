@@ -104,6 +104,41 @@ body{
   background-color: white;
   color:#a4c639;
 }
+#radioPolje{
+  display: flex;
+  justify-content: flex-start;
+}
+#radioPolje fieldset{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+#radio1{
+  margin-right: 7px;
+  margin-bottom: 0px;
+}
+#radio2{
+  margin-right: 7px;
+  margin-bottom: 0px;
+}
+.levoBre{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#message{
+  margin-bottom: 10px m !important;
+}
+#radioPolje fieldset div{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 20px;
+}
+#radioPolje fieldset div input{
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
 .desno-minus-280{ 
   right: -280px;
 

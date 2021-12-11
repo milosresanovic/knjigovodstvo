@@ -154,8 +154,15 @@ forma.addEventListener("click", () => {
     let txt = document.getElementById("message").value;
     let m1 = proveriIme();
     let m2 = proveriEmail();
+    let r1=document.getElementById("radio1");
+    let r2=document.getElementById("radio2");
 
-
+    if(r1.checked || r2.checked){
+        document.getElementById("greskaRadio").classList.add("sakrij");
+    }
+    else{
+        document.getElementById("greskaRadio").classList.remove("sakrij");
+    }
     if (txt == "") {
         document.getElementById("upozorenjeText").classList.remove("sakrij");
         document.getElementById("uspehForma").classList.add("sakrij");
@@ -171,7 +178,7 @@ forma.addEventListener("click", () => {
     else {
         document.getElementById("upozorenjeTema").classList.add("sakrij");
     }
-    if (comboRez != "" && txt != "" && proveriEmail() && proveriIme()) {
+    if (comboRez != "" && txt != "" && proveriEmail() && proveriIme() && (r1.checked || r2.checked)) {
         document.getElementById("uspehForma").classList.remove("sakrij");
     }
     else {
